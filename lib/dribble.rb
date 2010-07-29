@@ -18,8 +18,8 @@ require File.join(base, 'dribble/version')
 module Dribble
   autoload :Request,        'dribble/request'
   
-  module API
-    autoload :Players,      'dribble/api/players'
-    autoload :Shots,        'dribble/api/shots'
-  end
+  # The API
+  autoload :Player,       'dribble/player'
+  autoload :Shot,         'dribble/shot'
+
 end
