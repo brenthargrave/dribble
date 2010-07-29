@@ -1,6 +1,6 @@
 = dribble
 
-Description goes here.
+A Dribble API wrapper.
 
 == Note on Patches/Pull Requests
  
@@ -13,5 +13,7 @@ Description goes here.
 * Send me a pull request. Bonus points for topic branches.
 
 == Copyright
+
+The name "Dribble" belongs to http://www.dribble.com
 
 Copyright (c) 2010 Robert R Evans. See LICENSE for details.
