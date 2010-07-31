@@ -1,19 +1,24 @@
 dir = File.expand_path(File.join(File.dirname(__FILE__), '..', 'lib'))
 require File.join(dir, 'dribble')
 
-puts "Find a specific shot by ID"
-puts Dribble::Shot.for(1).inspect
-
-puts
-puts "Everyone's shots"
-puts Dribble::Shot.everyones.inspect
-
-
-puts
-puts "Debut shots"
-puts Dribble::Shot.everyones.inspect
+# puts "Find a specific shot by ID"
+# shot =  Dribble::Shot.for(1)
+# puts shot.inspect
+#  
+# puts
+# puts "Everyone's shots"
+# puts Dribble::Shot.everyones.inspect
+# 
+# 
+# puts
+# puts "Debut shots"
+# puts Dribble::Shot.debuts.inspect
 
 
 puts
 puts "Popular shots"
-puts Dribble::Shot.everyones.inspect
+popular = Dribble::Shot.popular
+puts popular.inspect
+puts
+popular_page_2 = popular.next_page
+puts popular_page_2.inspect

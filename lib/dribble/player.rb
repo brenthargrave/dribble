@@ -1,51 +1,59 @@
 module Dribble
   class Player
-    class << self
-      
-      
-      ##
-      # Find shots for a given player
-      #
-      # @param  [String/Integer]
-      # @return [Hash]
-      # @api    public
-      #
-      def find(id, options={})
-        Dribble::Request.get("/players/#{id}/shots", setup_options(options))
+    attr_reader :id, :name, :url, :avatar_url, :location, :created_at
+    
+    
+    def initialize(attr={})
+      attr.each do |key, value|
+        instance_variable_set("@#{key}", value)
       end
-      
-      
-      ##
-      # Followers
-      #
-      # @param  [String/Integer]
-      # @return [Hash]
-      # @api    public
-      #
-      def followers(id, options={})
-        Dribble::Request.get("/players/#{id}/shots/following", setup_options(options))
-      end
-      
-      
-      ##
-      # Profile
-      #
-      # @param  [String/Integer]
-      # @return [Hash]
-      # @api    public
-      #
-      def profile(id)
-        Dribble::Request.get("/players/#{id}")
-      end
-      
-      
-      
-      private
-        
-        def setup_options(options)
-          {:per_page => 30, :page => 1}.merge(options)
-        end
-      
     end
+    
+    
+    ##
+    # Find shots for a given player
+    #
+    # @param  [String/Integer]
+    # @return [Hash]
+    # @api    public
+    #
+    def self.find(id, options={})
+      results = Dribble::API::Player.find(id, options)
+      Dribble::Shots.new(format_shots(results), results)
+    end
+  
+  
+    ##
+    # Following Shots
+    #
+    # @param  [String/Integer]
+    # @return [Hash]
+    # @api    public
+    #
+    def self.following_shots(id, options={})
+      results = Dribble::API::Player.following_shots(id, options)
+      Dribble::Shots.new(format_shots(results), results)
+    end
+
+  
+    ##
+    # Profile
+    #
+    # @param  [String/Integer]
+    # @return [Hash]
+    # @api    public
+    #
+    def self.profile(id)
+      new(Dribble::API::Player.profile(id))
+    end
+    
+    private
+      
+      def self.format_shots(response, index = :shots)
+        response[index].map do |shot|
+          Dribble::Shot.new(shot)
+        end
+      end
+    
   end
 end
