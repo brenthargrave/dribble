@@ -25,8 +25,7 @@ module Dribble
   autoload :Popular,              'dribble/shots'
   autoload :Debut,                'dribble/shots'
   autoload :Everyone,             'dribble/shots'
-  autoload :Find,               'dribble/shots'
-  autoload :FollowingShots,     'dribble/shots'
+  autoload :Following,            'dribble/shots'
   
   # A slimmer API that converts JSON to a Hash. No Object creation overhead.
   module API

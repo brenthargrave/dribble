@@ -36,3 +36,8 @@ module Dribble
   class Debuts < Shots
   end
 end
+
+module Dribble
+  class Following < Shots
+  end
+end

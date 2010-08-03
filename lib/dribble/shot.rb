@@ -15,11 +15,24 @@ module Dribble
     # By ID
     #
     # @param    [Integer]
-    # @return   [Hash]
+    # @return   [Object]
     # @api      public
     #
     def self.for(id)
       new(Dribble::API::Shot.for(id))
+    end
+    
+    
+    ##
+    # Following
+    #
+    # @param  [String/Integer]
+    # @return [Object]
+    # @api    public
+    #
+    def self.following(id, options={})
+      results = Dribble::API::Shot.following(id, options)
+      Dribble::Following.new(format_shots(results), results)
     end
   
   
@@ -29,7 +42,7 @@ module Dribble
     # @param    [Hash]
     #           e.g. {:per_page => 30, :page => 1}
     #
-    # @return   [Array]
+    # @return   [Object]
     # @api      public
     #
     def self.everyones(options={})
@@ -44,7 +57,7 @@ module Dribble
     # @param    [Hash]
     #           e.g. {:per_page => 30, :page => 1}
     #
-    # @return   [Array]
+    # @return   [Object]
     # @api      public
     #
     def self.debuts(options={})
@@ -59,7 +72,7 @@ module Dribble
     # @param    [Hash]
     #           e.g. {:per_page => 30, :page => 1}
     #
-    # @return   [Array]
+    # @return   [Object]
     # @api      public
     #
     def self.popular(options={})

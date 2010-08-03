@@ -10,7 +10,7 @@ module Dribble
       # @return [Hash]
       # @api    public
       #
-      def self.find(id, options={})
+      def self.find_shots(id, options={})
         Dribble::Request.get("/players/#{id}/shots", setup_options(options))
       end
     

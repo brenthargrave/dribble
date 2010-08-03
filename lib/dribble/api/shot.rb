@@ -13,7 +13,21 @@ module Dribble
       def self.for(id)
         Dribble::Request.get("/shots/#{id.to_i}")
       end
-    
+      
+      
+      ##
+      # Following
+      #
+      # @param    [String/Integer, Hash]
+      #           e.g. {:per_page => 30, :page => 1}
+      #
+      # @return   [Hash]
+      # @api      public
+      #
+      def self.following(id, options={})
+        Dribble::Request.get("/players/#{id}/shots/following", setup_options(options))
+      end
+      
     
       ##
       # Everyones
