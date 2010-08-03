@@ -2,20 +2,19 @@
 
 This is the unofficial dribble api. 
 
-There is a very thin wrapper for the Dribble API that is labeled as Dribble::API. This uses the bare minimum to get the desired data from Dribble and returns a symbolized hash. This implementation is focused on simplicity and speed. However, I have yet to really work on the speed aspect.
-
 == Dribble::API
+
+There is a very thin wrapper for the Dribble API that is labeled as Dribble::API. This uses the bare minimum to get the desired data from Dribble and returns a symbolized hash. This implementation is focused on simplicity and speed. However, I have yet to really work on the speed aspect.
 
   Dribble::API::Player.profile('simplebits')
   Dribble::API::Shot.popular
 
 
+== Dribble::Player && Dribble::Shot
+
 Dribble::Player and Dribble::Shot is another layer on-top of the API to add that object look and feel. This is more for convenience and ease of use.
 
-This is meant for convenience and ease of use. 
-
-
-== Dribble::Player && Dribble::Shot
+This is meant for convenience and ease of use.
 
   Dribble::Player.find('simplebits')
   Dribble::Shot.popular
