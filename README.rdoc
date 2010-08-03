@@ -6,10 +6,8 @@ There is a very thin wrapper for the Dribble API that is labeled as Dribble::API
 
 == Dribble::API
 
-<pre><code>
   Dribble::API::Player.profile('simplebits')
   Dribble::API::Shot.popular
-</code></pre>
 
 
 Dribble::Player and Dribble::Shot is another layer on-top of the API to add that object look and feel. This is more for convenience and ease of use.
@@ -19,10 +17,8 @@ This is meant for convenience and ease of use.
 
 == Dribble::Player && Dribble::Shot
 
-<pre><code>
   Dribble::Player.find('simplebits')
   Dribble::Shot.popular
-</code></pre>
 
 == Note on Patches/Pull Requests
  
