@@ -10,8 +10,8 @@ begin
     gem.email = "robert@codewranglers.org"
     gem.homepage = "http://github.com/revans/dribble"
     gem.authors = ["Robert R Evans"]
-    gem.add_development_dependency "rspec", ">= 1.2.9"
-    gem.add_development_dependency "yard", ">= 0"
+    gem.add_development_dependency "rspec", "= 1.3.0"
+    gem.add_development_dependency "yard",  "= 0.5.8"
     
     gem.add_dependency 'yajl-ruby', '= 0.7.7'
     
