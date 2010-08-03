@@ -1,6 +1,7 @@
 module Dribble
   class Shot
-    attr_reader   :id, :title, :url, :image_url, :image_teaser_url, :width, :height, :created_at, :player
+    attr_reader   :id, :title, :url, :image_url, :image_teaser_url, :width, :height, :created_at, :player,
+                  :views_count, :likes_count, :comments_count, :rebounds_count
     
     
     def initialize(attributes={})
