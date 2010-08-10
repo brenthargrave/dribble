@@ -35,13 +35,17 @@ Gem::Specification.new do |s|
      "lib/dribble/api/shot.rb",
      "lib/dribble/exceptions.rb",
      "lib/dribble/player.rb",
+     "lib/dribble/players.rb",
      "lib/dribble/request.rb",
      "lib/dribble/shot.rb",
      "lib/dribble/shots.rb",
      "lib/dribble/version.rb",
+     "spec/dribble/core_ext/hash_spec.rb",
+     "spec/dribble/core_ext/object_spec.rb",
      "spec/rcov.opts",
      "spec/spec.opts",
-     "spec/spec_helper.rb"
+     "spec/spec_helper.rb",
+     "spec/support/fakeweb_yajl.rb"
   ]
   s.homepage = %q{http://github.com/revans/dribble}
   s.rdoc_options = ["--charset=UTF-8"]
