@@ -37,6 +37,31 @@ module Dribble
       def self.profile(id)
         Dribble::Request.get("/players/#{id}")
       end
+      
+      
+      ##
+      # Followers
+      #
+      # @param  [String/Integer]
+      # @return [Hash]
+      # @api    public
+      #
+      def self.followers(id, options={})
+        Dribble::Request.get("/players/#{id}/followers", setup_options(options))
+      end
+      
+      
+      
+      ##
+      # Followers
+      #
+      # @param  [String/Integer]
+      # @return [Hash]
+      # @api    public
+      #
+      def self.draftees(id, options={})
+        Dribble::Request.get("/players/#{id}/draftees", setup_options(options))
+      end
 
     
       private

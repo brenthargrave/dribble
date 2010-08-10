@@ -36,6 +36,30 @@ module Dribble
     end
     
     
+    ##
+    # Player's Shots
+    #
+    # @param  [Hash]
+    # @return [Array]
+    # @api    public
+    #
+    def draftees(options={})
+      @draftees ||= Dribble::API::Player.draftees(self.id, options)
+    end
+    
+    
+    ##
+    # Player's Shots
+    #
+    # @param  [Hash]
+    # @return [Array]
+    # @api    public
+    #
+    def followers(options={})
+      @followers ||= Dribble::API::Player.followers(self.id, options)
+    end
+    
+    
     class << self
       
       
@@ -64,6 +88,32 @@ module Dribble
         Dribble::Shots.new(format_shots(results), results)
       end
 
+      
+      ##
+      # Followers
+      #
+      # @param  [String/Integer]
+      # @return [Object]
+      # @api    public
+      #
+      def followers(id, options={})
+        results = Dribble::API::Player.followers(id, options)
+        Dribble::Players.new(format_players(results), results)
+      end
+      
+      
+      ##
+      # Draftees
+      #
+      # @param  [String/Integer]
+      # @return [Object]
+      # @api    public
+      #
+      def draftees(id, options={})
+        results = Dribble::API::Player.draftees(id, options)
+        Dribble::Players.new(format_players(results), results)
+      end
+      
   
       ##
       # Profile
@@ -91,6 +141,20 @@ module Dribble
         def format_shots(response, index = :shots)
           response[index].map do |shot|
             Dribble::Shot.new(shot)
+          end
+        end
+        
+        
+        ##
+        # Format Player
+        #
+        # @param  [Array, Symbold]
+        # @return [Object]
+        # @api    private
+        #
+        def format_players(response, index = :players)
+          response[index].map do |player|
+            Dribble::Player.new(player)
           end
         end
     end

@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{dribble}
-  s.version = "0.0.31"
+  s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Robert R Evans"]
-  s.date = %q{2010-08-05}
+  s.date = %q{2010-08-09}
   s.description = %q{API Wrapper for the awesome Dribble Site}
   s.email = %q{robert@codewranglers.org}
   s.extra_rdoc_files = [
@@ -49,7 +49,10 @@ Gem::Specification.new do |s|
   s.rubygems_version = %q{1.3.7}
   s.summary = %q{API Wrapper for the awesome Dribble Site}
   s.test_files = [
-    "spec/spec_helper.rb",
+    "spec/dribble/core_ext/hash_spec.rb",
+     "spec/dribble/core_ext/object_spec.rb",
+     "spec/spec_helper.rb",
+     "spec/support/fakeweb_yajl.rb",
      "examples/barebones/player.rb",
      "examples/barebones/shot.rb",
      "examples/player.rb",
