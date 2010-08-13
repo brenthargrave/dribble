@@ -34,6 +34,6 @@ This is meant for convenience and ease of use.
 
 == Copyright
 
-The name "Dribble" belongs to http://www.dribble.com
+The name "Dribbble" belongs to http://www.dribbble.com
 
 Copyright (c) 2010 Robert R Evans. See LICENSE for details.

@@ -1,4 +1,0 @@
---sort coverage
---profile
---rails
---exclue /gems/,/Library/,spec

@@ -3,9 +3,8 @@ $:.unshift(File.dirname(__FILE__)) unless $:.include?(File.dirname(__FILE__)) ||
 require 'uri'
 
 require 'rubygems'
-require 'yajl/gzip'
-require 'yajl/deflate'
-require 'yajl/http_stream'
+require 'em-http-request'
+require 'yajl'
 
 base = File.expand_path(File.dirname(__FILE__))
 
