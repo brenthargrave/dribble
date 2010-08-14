@@ -1,26 +1,103 @@
 = Dribble
 
-This is the unofficial dribble api. For more examples look in the examples/ directory. There are examples for the both styles (object notation and hash implementation.)
+This is the unofficial dribbble api. For more examples look in the examples/ directory. There are examples for the both styles (object notation and hash implementation.)
 
 == Dribble::API
 
-There is a very thin wrapper for the Dribble API that is labeled as Dribble::API. This uses the bare minimum to get the desired data from Dribble and returns a hash. This implementation is focused on simplicity and speed. However, I have yet to really work on the speed aspect.
-
-  Dribble::API::Player.profile('simplebits')
-  Dribble::API::Shot.popular
+There is a very thin wrapper for the Dribble API that is called Dribble::API. This uses the bare minimum to get the desired data from Dribbble and returns a hash. This implementation is focused on simplicity and speed. However, I have yet to really work on the speed aspect.
 
 
-== Dribble::Player && Dribble::Shot
+=== Dribble::API::Player
 
-Dribble::Player and Dribble::Shot is another layer on-top of the API to add that object look and feel. This is more for convenience and ease of use.
+  Dribble::API::Player.find_shots('simplebits') # => Finds all the shots by simplebits
 
-This is meant for convenience and ease of use.
+  Dribble::API::Player.profile('simplebits') # => Gets simplebits' profile
+
+  Dribble::API::Player.following_shots('simplebits') # => Gets the shots that simplebits is following
+
+  Dribble::API::Player.followers('simplebits') # => gets simplebits' followers
+
+  Dribble::API::Player.draftees('simplebits') # => gets simplebits' draftees
+
+Each of the above (except the profile request) accepts a second parameter, a hash of options. This hash can consist of the following:
+
+  {:per_page => 30, :page => 1}
+
+You can control the pagination yourself by doing the following:
+
+  Dribble::API::Player.followers('simplebits', {:per_page => 25, :page => 3})
+
+30 is the max amount you can request per page. It is also the default set within this API implementation. Page 1 is the default page.
+
+=== Dribble::API::Shot
   
-  Dribble::Shot.popular
+
+  Dribble::API::Shot.for(1) # => gets the shots for the user with the id of 1
+
+  Dribble::API::Shot.everyones # => Gets everyones shots
+
+  Dribble::API::Shot.debuts # => gets the debut shots
+
+  Dribble::API::Shot.popular # => gets the popular shots
+
+Each of the above (except the profile request) accepts a second parameter, a hash of options. This hash can consist of the following:
+
+  {:per_page => 30, :page => 1}
+
+You can control the pagination yourself by doing the following:
+
+  Dribble::API::Shot.popular({:per_page => 25, :page => 3})
+
+30 is the max amount you can request per page. It is also the default set within this API implementation. Page 1 is the default page.
+
+=== Options Defaults
+
+* Per page : 30
+* Page : 1
+
+== A convenience layer
+
+This is another layer of the API wrapper that sits on top of the Dribble::API to give an easier working interface.
+
+=== Dribble::Player
+
+  @player = Dribble::Player.profile('simplebits')
+  @player.id                     # => 1
+  @player.name                   # => Dan Cederholm
+  @player.url                    # => http://dribbble.com/players/simplebits
+  @player.avatar_url             # => http://dribbble.com/system/users/1/avatars/thumb/dancederholm-peek.jpg?1261060245
+  @player.location               # => Salem, MA
+  @player.created_at             # => 2009/07/07 21:51:22 -0400
+  @player.draftees_count         # => 103
+  @player.following_count        # => 378
+  @player.shots_count            # => 148
+  @player.followers_count        # => 2129
+  @player.following              # => [] This makes a request to dribbble to get the shots that this user is following
+  @player.shots                  # => [] This makes a request to dribbble to get the shots that this user has put up
+  @player.drafted_by_palyer_id   # => nil
   
-  player = Dribble::Player.profile('simplebits')
-  player.following  # => the shots that this player is following
-  player.shots      # => the players shots
+  
+More documentation coming soon.
+
+=== Dribble::Shot
+
+  @shot = Dribble::Shot.for(1)
+  @shot.id                  # => 1
+  @shot.title               # => Working on the new shop
+  @shot.url                 # => http://dribbble.com/shots/1-Working-on-the-new-shop
+  @shot.image_url           # => http://dribbble.com/system/users/1/screenshots/1/Picture-2.png
+  @shot.image_teaser_url    # => http://dribbble.com/system/users/1/screenshots/1/Picture-2_teaser.png
+  @shot.width               # => 400
+  @shot.height              # => 300
+  @shot.created_at          # => 2009/07/08 06:08:35 -0400
+  @shot.player              # => Dribble::Player Object (e.g. @shot.player.name, @shot.player.url, @shot.player.location)
+  @shot.views_count         # => 838
+  @shot.likes_count         # => 8
+  @shot.comments_count      # => 3
+  @shot.rebounds_count      # => 0
+  
+
+More documentation coming soon.
 
 == Note on Patches/Pull Requests
  

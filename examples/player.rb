@@ -6,10 +6,10 @@ require File.join(dir, 'dribble')
 # puts player.inspect
 # 
 # 
-# puts
-# puts "Find Player's Profile"
-# player2 = Dribble::Player.profile('simplebits') # OR Dribble::Player.find('simplebits')
-# puts player.inspect
+puts
+puts "Find Player's Profile"
+player2 = Dribble::Player.profile('simplebits') # OR Dribble::Player.find('simplebits')
+puts player2.inspect
 
 
 # puts
@@ -17,17 +17,17 @@ require File.join(dir, 'dribble')
 # player3 = Dribble::Player.following_shots('simplebits')
 # puts player3.inspect
 
-
-puts
-puts "Find a players followers"
-player4 = Dribble::Player.followers('simplebits')
-puts player4.inspect
-
-
-puts
-puts "Find a players draftees"
-player5 = Dribble::Player.draftees('simplebits')
-puts player5.inspect
+# 
+# puts
+# puts "Find a players followers"
+# player4 = Dribble::Player.followers('simplebits')
+# puts player4.inspect
+# 
+# 
+# puts
+# puts "Find a players draftees"
+# player5 = Dribble::Player.draftees('simplebits')
+# puts player5.inspect
 
 
 
