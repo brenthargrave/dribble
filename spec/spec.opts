@@ -1,0 +1,7 @@
+--colour
+--format profile
+--loadby mtime
+--reverse
+--drb
+--timeout 20
+--diff
