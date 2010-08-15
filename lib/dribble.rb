@@ -19,15 +19,19 @@ module Dribble
   
   # Custom Objects for easy usage of the Dribble API
   autoload :Player,               'dribble/player'
+  
   autoload :Players,              'dribble/players'
+  autoload :Followers,            'dribble/players'
+  autoload :Draftees,             'dribble/players'
+  
   autoload :Shot,                 'dribble/shot'
+  
   autoload :Shots,                'dribble/shots'
   autoload :Popular,              'dribble/shots'
   autoload :Debut,                'dribble/shots'
-  autoload :Everyone,             'dribble/shots'
+  autoload :Everyones,            'dribble/shots'
   autoload :Following,            'dribble/shots'
-  autoload :Followers,            'dribble/players'
-  autoload :Draftees,             'dribble/players'
+  
   
   # A slimmer API that converts JSON to a Hash. No Object creation overhead.
   module API

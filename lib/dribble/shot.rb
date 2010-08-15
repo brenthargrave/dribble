@@ -33,7 +33,7 @@ module Dribble
     #
     def self.following(id, options={})
       results = Dribble::API::Shot.following(id, options)
-      Dribble::Following.new(format_shots(results), results)
+      Dribble::Following.new(format_shots(results), results.merge(:player_name => id))
     end
   
   

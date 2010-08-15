@@ -2,7 +2,8 @@ module Dribble
   class Player
     attr_reader :id, :name, :url, :avatar_url, :location, :created_at, :draftees_count,
                 :following_count, :shots_count, :followers_count, :following, :shots,
-                :drafted_by_player_id, :draftees_count
+                :drafted_by_player_id, :draftees_count, :players, :page, :pages, :per_page, 
+                :total
     
     
     def initialize(attr={})
@@ -13,13 +14,13 @@ module Dribble
     
     
     ##
-    # Following
+    # Following shots
     #
     # @param  [Hash]
     # @return [Array]
     # @api    public
     #
-    def following(options={})
+    def following_shots(options={})
       @following ||= Dribble::API::Shot.following(self.id, options)
     end
     
@@ -72,7 +73,7 @@ module Dribble
       #
       def find_shots(id, options={})
         results = Dribble::API::Player.find_shots(id, options)
-        Dribble::Shots.new(format_shots(results), results)
+        Dribble::Shots.new(format_shots(results), results.merge(:player_name => id))
       end
   
   
@@ -85,7 +86,7 @@ module Dribble
       #
       def following_shots(id, options={})
         results = Dribble::API::Player.following_shots(id, options)
-        Dribble::Shots.new(format_shots(results), results)
+        Dribble::Following.new(format_shots(results), results.merge(:player_name => id))
       end
 
       
@@ -97,8 +98,9 @@ module Dribble
       # @api    public
       #
       def followers(id, options={})
+        puts "ID: #{id} OPTIONS: #{options.inspect}"
         results = Dribble::API::Player.followers(id, options)
-        Dribble::Players.new(format_players(results), results)
+        Dribble::Followers.new(format_players(results), results.merge(:player_name => id))
       end
       
       
@@ -111,7 +113,7 @@ module Dribble
       #
       def draftees(id, options={})
         results = Dribble::API::Player.draftees(id, options)
-        Dribble::Players.new(format_players(results), results)
+        Dribble::Draftees.new(format_players(results), results.merge(:player_name => id))
       end
       
   
