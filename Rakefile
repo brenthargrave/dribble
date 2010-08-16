@@ -4,16 +4,17 @@ require 'rake'
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
-    gem.name = "dribble"
-    gem.summary = %Q{API Wrapper for the awesome Dribbble Site}
+    gem.name        = "dribble"
+    gem.summary     = %Q{API Wrapper for the awesome Dribbble Site}
     gem.description = %Q{API Wrapper for the awesome Dribbble Site}
-    gem.email = "robert@codewranglers.org"
-    gem.homepage = "http://github.com/revans/dribble"
-    gem.authors = ["Robert R Evans"]
-    
+    gem.email       = "robert@codewranglers.org"
+    gem.homepage    = "http://github.com/revans/dribble"
+    gem.authors     = ["Robert R Evans"]
+     
     gem.add_development_dependency "rspec",   '= 1.3.0'
     gem.add_development_dependency "yard",    '= 0.5.8'
     
+    gem.add_dependency 'yajl-ruby',           '= 0.7.7'
     gem.add_dependency 'em-http-request',     '= 0.2.10'
     
   end
