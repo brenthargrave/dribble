@@ -1,9 +1,11 @@
 module Dribble
   class Player
-    attr_reader :id, :name, :url, :avatar_url, :location, :created_at, :draftees_count,
-                :following_count, :shots_count, :followers_count, :following, :shots,
-                :drafted_by_player_id, :draftees_count, :players, :page, :pages, :per_page, 
-                :total
+    attr_reader :id, :name, :url, :avatar_url, :location, :twitter_screen_name,
+                :drafted_by_player_id, :shots_count, :draftees_count, 
+                :followers_count, :following_count, :comments_count, :comments_received_count,
+                :likes_count, :likes_receive_count, :rebounds_count, :rebounds_received_count,
+                :created_at, 
+                :following, :shots, :players, :page, :pages, :per_page, :total
     
     
     def initialize(attr={})
