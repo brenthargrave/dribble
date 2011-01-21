@@ -94,7 +94,7 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<rspec>, ["= 1.3.0"])
       s.add_dependency(%q<yard>, ["= 0.5.8"])
       s.add_dependency(%q<yajl-ruby>, ["= 0.7.7"])
-      s.add_dependency(%q<em-http-request>, ["= 0.2.10"])
+      s.add_dependency(%q<em-http-request>, ["~> 0.2.10"])
     end
   else
     s.add_dependency(%q<rspec>, ["= 1.3.0"])
